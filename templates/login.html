@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: #f96892;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .signup-container {
+            text-align: center;
+        }
+        #clouds {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+        button {
+            color: inherit;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 170px;
+        }
+        a {
+            color: #e14579;
+            text-decoration: none;
+        }
+        a:hover {
+            color: white;
+        }
+        .back-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link"><a href="/">Homepage</a></div>
+    <img src="/static/Logo.png" id="logo">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+    <!-- Assuming you want clouds at the bottom -->
+    <img src="/static/clouds.png" id="clouds">
+</body>
+</html>
